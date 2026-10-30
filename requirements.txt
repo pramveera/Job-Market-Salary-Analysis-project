@@ -1,0 +1,11 @@
+# Core data analysis
+pandas
+numpy
+
+# Visualization
+matplotlib
+seaborn
+
+# Notebook environment
+jupyter
+ipykernel
