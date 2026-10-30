@@ -1,70 +1,100 @@
-# Job Market & Salary Analysis
+# 📊 Job Market & Salary Analysis
 
-**Analyzing job market trends, salary patterns, experience levels, and in-demand technical skills using LinkedIn job postings.**
+**Exploring job market trends, salary patterns, experience levels, and in-demand technical skills using LinkedIn job postings (2023–2024).**
 
-## Project Overview
+## 📌 Project Overview
 
-This project analyzes LinkedIn job postings from 2023–2024 to understand hiring trends, salary distributions, job requirements, and technical skills demanded by employers.
+This project analyzes LinkedIn job postings to understand the current job market, salary distributions, hiring trends, and technical skills demanded by employers.
 
-The project uses Python, Pandas, NumPy, Matplotlib, Seaborn, and SQL-related data analysis concepts to transform raw job-posting data into meaningful insights.
+Using Python and data analysis techniques, the project explores job opportunities across different roles, locations, and experience levels.
 
-The findings can help students and job seekers understand the skills employers request and make more informed career-development decisions.
+The project also investigates salary data quality and identifies in-demand technical skills for Data Scientist, Data Analyst, and Machine Learning Engineer positions.
 
-## Objectives
+**Main objective:** Transform raw job-posting data into meaningful insights that can help students and job seekers understand industry requirements and make informed career decisions.
 
-- Analyze job postings by title, location, work type, and experience level.
-- Investigate salary distributions across different job roles and experience levels.
-- Identify salary outliers and potential salary-data quality issues.
-- Identify in-demand technical skills for Data Scientist, Data Analyst, and Machine Learning Engineer roles.
-- Explore relationships between job requirements, experience, and compensation.
-- Develop a reproducible data-cleaning and analysis workflow.
+## 🎯 Project Objectives
 
-## Dataset
+- Analyze job postings by job title, location, and experience level.
+- Understand employment and work-type distributions.
+- Explore salary distributions across different job roles.
+- Compare salaries across experience levels.
+- Identify salary outliers and potential data-quality issues.
+- Extract in-demand technical skills from job descriptions.
+- Understand the skills required for Data Science and Machine Learning roles.
 
-**Source:** Kaggle — LinkedIn Job Postings (2023–2024)
+## 📂 Dataset
 
-The original `postings.csv` dataset contains approximately **123,849 job postings and 31 columns**.
+**Dataset:** LinkedIn Job Postings (2023–2024)
 
-Important fields include:
+**Source:** Kaggle
 
-| Column | Description |
-|---|---|
-| `job_id` | Unique job-posting identifier |
-| `company_name` | Company associated with the posting |
-| `title` | Job title |
-| `description` | Job description |
-| `location` | Job location |
-| `formatted_work_type` | Employment type, such as full-time or part-time |
-| `formatted_experience_level` | Required experience level |
-| `min_salary` | Minimum listed salary |
-| `max_salary` | Maximum listed salary |
-| `pay_period` | Salary period, such as hourly or yearly |
-| `currency` | Salary currency |
-| `normalized_salary` | Salary standardized in the source dataset |
+**Download:** [LinkedIn Job Postings Dataset](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings)
 
-The dataset also contains related files, including company information, job-skill mappings, and skill definitions.
+The original dataset contains approximately 123,849 job postings and 31 columns in `postings.csv`.
 
-*Note: The dataset contains missing salary and other optional information. Results are based on the available records and the filters used in each analysis.*
+Other related files provide company information, salary information, job-skill mappings, and skill definitions.
 
-## Tools and Technologies
+### Dataset Download Instructions
 
-- **Python** — Data analysis and processing
-- **Pandas and NumPy** — Data cleaning, transformation, and aggregation
-- **Matplotlib and Seaborn** — Data visualization
-- **Jupyter Notebook** — Exploratory analysis and documentation
-- **SQL** — Relational data analysis concepts
-- **Git and GitHub** — Version control and project sharing
+The dataset is not included in this GitHub repository because of its large size.
 
-## Project Structure
+Follow these steps to run the project:
+
+1. Visit the [Kaggle dataset page](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings).
+2. Download the dataset files.
+3. Extract the downloaded files.
+4. Create the following directory structure in your local project.
+5. Place the corresponding CSV files in their respective folders.
 
 ```text
-Job Market & Salary Analysis project/
+DATA/
 │
-├── data/
-│   ├── raw/
-│   │   └── postings.csv
-│   └── processed/
-│       └── cleaned_job_postings.csv
+├── RAW/
+│   ├── companies/
+│   │   ├── companies.csv
+│   │   ├── company_industries.csv
+│   │   ├── company_specialities.csv
+│   │   └── employee_counts.csv
+│   │
+│   ├── jobs/
+│   │   ├── benefits.csv
+│   │   ├── job_industries.csv
+│   │   ├── job_skills.csv
+│   │   └── salaries.csv
+│   │
+│   ├── mappings/
+│   │   ├── industries.csv
+│   │   └── skills.csv
+│   │
+│   └── postings.csv
+│
+└── Processed/
+    ├── cleaned_job_postings.csv
+    └── job_postings_flagged.csv
+```
+
+**Note:** The `Processed/` files are generated by the project's cleaning workflow. You do not need to download them separately if you run the cleaning notebook.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Programming and analysis |
+| Pandas | Data cleaning and manipulation |
+| NumPy | Numerical operations |
+| Matplotlib | Data visualization |
+| Seaborn | Statistical visualization |
+| Jupyter Notebook | Interactive analysis |
+| Git & GitHub | Version control |
+
+## 📁 Project Structure
+
+```text
+Job-Market-Salary-Analysis-project/
+│
+├── DATA/                         # Local datasets (not on GitHub)
+│   ├── RAW/
+│   └── Processed/
 │
 ├── notebooks/
 │   ├── 01_data_inspection.ipynb
@@ -72,92 +102,140 @@ Job Market & Salary Analysis project/
 │   ├── 03_exploratory_data_analysis.ipynb
 │   └── 04_skill_demand_analysis.ipynb
 │
-├── reports/
-│
+├── .gitignore
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── project_report.md
 ```
 
-*The structure above represents the intended organization. Update filenames if your actual project differs.*
+**Important:** The `DATA/` directory is excluded from GitHub using `.gitignore`. Users must download the dataset separately from Kaggle.
 
-## Analysis Workflow
+## 🔄 Project Workflow
 
 ### 1. Data Inspection
 
-- Loaded and examined the original dataset.
-- Reviewed dataset dimensions, column names, and data types.
-- Investigated missing values and duplicate job identifiers.
+- Loaded the original job-posting dataset.
+- Examined rows, columns, and data types.
+- Investigated missing values.
+- Checked duplicate job identifiers.
+- Understood the dataset structure.
 
 ### 2. Data Cleaning
 
-- Standardized text columns by trimming whitespace.
+- Created a separate working copy of the original dataset.
+- Standardized text columns.
+- Removed leading and trailing whitespace.
 - Converted empty strings into missing values.
-- Checked duplicate job IDs and salary-range consistency.
-- Investigated missing salary information without deleting postings solely because optional fields were missing.
-- Converted geographic and company identifiers to string data types.
-- Added a salary-quality review flag for suspicious hourly salary-normalization patterns.
-- Saved the processed dataset as `cleaned_job_postings.csv`.
+- Checked duplicate job IDs.
+- Investigated missing salary information.
+- Checked negative salary values and invalid salary ranges.
+- Converted company and geographic identifiers into string data types.
+- Created a salary-quality review flag.
+- Saved the cleaned dataset.
 
 **Cleaning result:** 123,849 rows and 32 columns, with no duplicate job IDs or remaining empty strings in the checked text columns.
 
-### 3. Exploratory Data Analysis
+### 3. Exploratory Data Analysis (EDA)
 
-Explored job-market characteristics, including:
+Explored job-market patterns, including:
 
-- Most frequent job titles.
-- Job postings by experience level.
-- Geographic distribution of opportunities.
-- Employment and work-type patterns.
-- Salary availability and salary distributions.
+- Most frequently posted job titles.
+- Job postings by location.
+- Experience-level distribution.
+- Employment and work-type distribution.
+- Salary availability and distributions.
 
 ### 4. Salary Analysis
 
-- Compared salary distributions across experience levels.
-- Investigated salary ranges and high-value observations.
-- Examined salary differences across job titles.
-- Investigated suspicious normalization patterns and assessed the effect of extreme values on summary statistics.
+- Analyzed salary distributions.
+- Compared salaries across experience levels.
+- Identified high-paying job titles.
+- Investigated salary outliers using the IQR method.
+- Compared salary statistics before and after excluding identified outliers.
 
-Salary comparisons require consistent pay periods, currencies, and units. Salary outliers are investigated rather than automatically treated as errors.
+For comparable salary analysis, a subset of yearly USD salary records was created.
 
 ### 5. Skill-Demand Analysis
 
-Focused on Data Scientist, Data Analyst, and Machine Learning Engineer postings.
+Focused on three job roles:
 
-A keyword-based approach was used to identify mentions of technical skills in job descriptions, including:
+- Data Scientist
+- Data Analyst
+- Machine Learning Engineer
 
-- Python and SQL
-- Machine Learning and Deep Learning
-- Statistics and Data Analysis
-- Excel, Tableau, and Power BI
-- AWS and Azure
-- PyTorch and TensorFlow
-- Spark, Docker, and NLP
+Used keyword-based extraction from job descriptions to identify technical skill mentions.
 
-The analysis compares skill mentions across the selected roles to identify potentially useful learning priorities.
+Skills investigated included:
 
-**Important limitation:** Skill counts represent keyword mentions in the selected postings, not a complete census of all job-market requirements. Keyword extraction may miss synonyms or context and may count a skill even when it is not a strict requirement.
+- Python
+- SQL
+- Machine Learning
+- Statistics
+- Data Analysis
+- Excel
+- Tableau
+- Power BI
+- AWS
+- PyTorch
+- TensorFlow
+- Deep Learning
 
-## Key Findings
+## 📊 Key Findings
 
-- The dataset contains **123,849 job postings**.
-- Mid-Senior was the largest experience-level group in the analyzed dataset.
-- Salary information was available for approximately **36,073 postings**.
-- Python and SQL were among the most frequently detected technical skills in the selected data-related job postings.
-- Salary records showed potential inconsistencies between hourly labels, raw salary values, and normalized salaries.
-- Missing values are common and need to be considered when interpreting each analysis.
+### Job Market Insights
 
-These findings are descriptive and depend on the dataset, filters, and extraction methods used.
+- Total job postings analyzed: 123,849.
+- Sales Manager was the most frequent job title in the analyzed dataset, with 673 postings.
+- Mid-Senior was the largest experience-level group, with 41,489 postings.
 
-## How to Run the Project
+### Salary Insights
 
-### 1. Clone the repository
+- 36,073 postings contained at least one salary value.
+- A filtered annual USD salary subset contained 19,084 postings.
+- Median salary midpoint in that subset was approximately $105,000.
+- Salary differences were observed across experience levels.
+
+### Technical Skill Insights
+
+The most frequently detected skills in the selected data-related job postings were:
+
+| Skill | Job Postings Mentioning Skill |
+|---|---:|
+| Python | 425 |
+| SQL | 410 |
+| Machine Learning | 312 |
+| Statistics | 257 |
+| Data Analysis | 254 |
+| Excel | 167 |
+| Tableau | 130 |
+| Data Visualization | 125 |
+| AWS | 114 |
+| PyTorch | 82 |
+
+These counts are based on 742 selected job postings and keyword-based extraction.
+
+## ⚠️ Data Quality and Limitations
+
+- Salary information is missing in many job postings.
+- Different currencies and pay periods require careful filtering before salary comparisons.
+- A systematic normalization pattern was identified in 10,212 hourly records with comparable salary fields: the normalized salary was exactly 2,080 times the raw salary midpoint.
+- These records were flagged for review rather than automatically modified or deleted.
+- Skill counts represent keyword mentions, not a complete measurement of employer requirements.
+- The dataset represents collected LinkedIn job postings, not the entire job market.
+
+## ⚙️ How to Run the Project
+
+### Step 1: Clone the Repository
 
 ```bash
-git clone <your-github-repository-url>
-cd "Job Market & Salary Analysis project"
+git clone https://github.com/pramveera/Job-Market-Salary-Analysis-project.git
 ```
 
-### 2. Create a virtual environment
+```bash
+cd Job-Market-Salary-Analysis-project
+```
+
+### Step 2: Create a Virtual Environment
 
 ```bash
 python -m venv .venv
@@ -169,46 +247,54 @@ Activate it on Windows:
 .venv\Scripts\activate
 ```
 
-### 3. Install dependencies
+### Step 3: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Add the dataset
+### Step 4: Download the Dataset
 
-Download the dataset from Kaggle and place the required raw files in the `data/raw/` directory.
+Download the LinkedIn Job Postings dataset from Kaggle and place the CSV files in the `DATA/RAW/` directory as described above.
 
-### 5. Run the notebooks
+### Step 5: Run the Notebooks
 
-Open Jupyter Notebook or VS Code and run the notebooks in sequence, starting with data inspection and cleaning.
+Open the project in VS Code or Jupyter Notebook.
 
-If you already have the processed dataset, you can use it for subsequent analysis notebooks.
+Run the notebooks in the following order:
 
-## Limitations
+1. `01_data_inspection.ipynb`
+2. `02_data_cleaning.ipynb`
+3. `03_exploratory_data_analysis.ipynb`
+4. `04_skill_demand_analysis.ipynb`
 
-- The dataset represents the collected LinkedIn postings, not every job available in the labor market.
-- Salary information is missing for many postings.
-- Salary values may use different currencies, pay periods, or units.
-- Some unusually large salary values require further investigation.
-- Skill extraction uses keywords and may not capture every skill or its context.
-- Results should be interpreted as exploratory findings rather than definitive labor-market estimates.
+The cleaning notebook generates the processed dataset in `DATA/Processed/`.
 
-## Future Improvements
+**Path note:** Notebook file paths are relative to the `notebooks/` directory. For example:
 
-- Build interactive dashboards with Streamlit or Power BI.
-- Improve skill extraction using NLP techniques.
-- Compare skills and compensation across job roles and experience levels.
-- Analyze changes in skill demand over time where timestamps support reliable comparisons.
-- Add a salary-quality validation pipeline.
+```python
+import pandas as pd
+
+df = pd.read_csv("../DATA/RAW/postings.csv")
+```
+
+## 🚀 Future Improvements
+
+- Develop an interactive dashboard using Streamlit.
+- Improve skill extraction using NLP.
+- Analyze job-market trends over time.
+- Compare salary patterns across industries and locations.
+- Develop a job recommendation system.
 - Integrate job-market insights into an AI-powered career guidance platform.
 
-## Author
+## 👨‍💻 Author
 
 **Pramveer Kumar**
 
 B.Tech — Computer Science and Engineering (Artificial Intelligence)
 
+[GitHub](https://github.com/pramveera)
+
 ---
 
-*This project is developed for data-analysis practice, portfolio development, and understanding job-market requirements.*
+⭐ If you find this project useful, feel free to explore the notebooks and share your feedback.
