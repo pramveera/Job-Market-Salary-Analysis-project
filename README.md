@@ -287,14 +287,5 @@ df = pd.read_csv("../DATA/RAW/postings.csv")
 - Develop a job recommendation system.
 - Integrate job-market insights into an AI-powered career guidance platform.
 
-## 👨‍💻 Author
-
-**Pramveer Kumar**
-
-B.Tech — Computer Science and Engineering (Artificial Intelligence)
-
-[GitHub](https://github.com/pramveera)
-
----
 
 ⭐ If you find this project useful, feel free to explore the notebooks and share your feedback.
